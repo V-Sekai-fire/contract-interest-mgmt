@@ -1,25 +1,17 @@
 # contract-interest-mgmt
 
-Authority-interest + solve-order hexagon: who-sees-whom and solve sequencing.
+A Lean 4 specification of which entities each peer must see and the order in which the fabric solves them.
 
-> Split out of the [`lean-predictive-bvh`](https://github.com/v-sekai-multiplayer-fabric/lean-predictive-bvh) monorepo (now archived). Each hexagon cluster is its own repo following the `core/ports/adapters` convention; cross-cluster wiring is via Lake `require ... from git`.
+## What it is for
 
-## Dependencies
+It holds the multiplayer fabric's authority-interest and solve-order rules with their proofs, and the narrow interfaces other contracts drive them through. Sibling contracts arrive as Lake git dependencies.
 
-- [`entities-lean-shared`](https://github.com/v-sekai-multiplayer-fabric/entities-lean-shared) — common primitive types
-- [`entities-lean-rebac`](https://github.com/v-sekai-multiplayer-fabric/entities-lean-rebac) — authority decisions
-- [`interactor-spatial-oracle`](https://github.com/v-sekai-multiplayer-fabric/interactor-spatial-oracle) — reachability/mapping references (also the transitive Mathlib source)
-- [`contract-protocol`](https://github.com/v-sekai-multiplayer-fabric/contract-protocol) — interest queries source
-
-## Build
+## Build and run
 
 ```sh
-lake build         # production gate: typecheck the  cluster
-lake build Research  # research-tier (non-gating; may fail)
+lake build
 ```
 
-## Hexagon layout
+## Licence
 
-- `core/` — dependency-free domain logic + proofs
-- `ports/` — narrow driving (source) / driven (sink) contracts
-- `adapters/` — concrete I/O at the edges
+MIT; see `LICENSE`.
